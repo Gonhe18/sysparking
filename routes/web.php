@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Auth\GoogleController;
+use App\Http\Livewire\Cajones;
+use App\Http\Livewire\Tipos;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::middleware([
     'auth:sanctum',
@@ -27,6 +26,15 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/', function () {
+    return view('auth.login');
+});
+
+Route::get('/tipos', Tipos::class)->name('tipos');
+// Route::get('/cajones', Cajones::class)->name('cajones');
+
+
 
 
 // Rutas login Google
