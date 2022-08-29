@@ -1,29 +1,23 @@
-<div class='row layout-top-spacing'>
+<div class='container mx-auto mt-2 border-2 border-black rounded-lg'>
    @if ($action == 1)
-   <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
-      <div class="widget-content-area br-4">
-         <div class="widget-header">
-            <div class="row">
-               <div class="col-xl-12 text-center">
-                  <h5><b>Tipos de Vehículos</b></h5>
-               </div>
-            </div>
-         </div>
+   <div class="columns-1 border px-5">
+      <div class=" py-3 text-center ">
+         <h2 class='font-semibold text-2xl'>Tipos de Vehículos</h2>
       </div>
       @include('common.search')
       @include('common.alerts')
-      <div class="table-responsive">
-         <table class="table tablebordered table-hover table-striped table-checkable table-highlight-head mb-4">
+      <div class="border flex flex-row">
+         <table class="table-fixed border-collapse border border-slate-500 w-full">
             <thead>
                <tr>
-                  <th>ID</th>
-                  <th>DESCRIPCIÓN</th>
-                  <th>CREADO</th>
-                  <th class="text-center">ACCIONES</th>
+                  <th class="border border-slate-600">ID</th>
+                  <th class="border border-slate-600">DESCRIPCIÓN</th>
+                  <th class="border border-slate-600">CREADO</th>
+                  <th class="text-center border border-slate-600">ACCIONES</th>
                </tr>
             </thead>
             <tbody>
-               @foreach ( $info as $t)
+               @foreach ( $info as $r)
                <tr>
                   <td>
                      <p class="mb-0">{{$r->id}}</p>
@@ -31,13 +25,13 @@
                   <td> {{ $r->descripcion }} </td>
                   <td>{{ $r->created_at }}</td>
                   <td class="text-center">
-                     @include('common.actions')
+                     @include('common.actions',[ 'id' => $r->id])
                   </td>
                </tr>
                @endforeach
             </tbody>
          </table>
-         {{ $inflo->links() }}
+         {{ $info->links() }}
       </div>
    </div>
 </div>
@@ -66,9 +60,6 @@ function confirm() {
          toastr.success('info', 'Registro elminado con éxito');
          swal.close()
       }
-
    )
-
-
 }
 </script>
