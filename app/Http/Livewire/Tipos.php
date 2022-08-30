@@ -22,7 +22,7 @@ class Tipos extends Component
     public function render()
     {
         if (strlen($this->search) > 0) {
-            $info = Tipo::where('descripcion', 'like', '%' . $this->search . '%')->pagination($this->paginacion);
+            $info = Tipo::where('descripcion', 'like', '%' . $this->search . '%')->paginate($this->paginacion);
             return view('livewire.tipos.componente', compact('info'));
         } else {
             $info = Tipo::paginate($this->paginacion);
@@ -61,7 +61,7 @@ class Tipos extends Component
     }
 
     // ABM tipos
-    public function crearActualizar()
+    public function StoreOrUpdate()
     {
         // Validar descripcion del registros
         $this->validate([
@@ -87,14 +87,14 @@ class Tipos extends Component
         if ($this->selected_id <= 0) {
             // creamos registros
             $record = Tipo::create([
-                'description' => $this->descripcion
+                'descripcion' => $this->descripcion
             ]);
         } else {
             // buscamos registros
             $record = Tipo::find($this->selected_id);
             // Actualizamos regist
             $record->update([
-                'description' => $this->descripcion
+                'descripcion' => $this->descripcion
             ]);
         }
 

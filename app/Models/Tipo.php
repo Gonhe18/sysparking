@@ -10,5 +10,5 @@ class Tipo extends Model
     use HasFactory;
 
     protected $table = 'tipos';
-    protected $fillable = ['description'];
+    protected $fillable = ['descripcion'];
 }

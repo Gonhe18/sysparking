@@ -11,6 +11,8 @@
    <!-- Fonts -->
    <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
+   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
    <!-- Scripts -->
    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -42,6 +44,8 @@
    @stack('modals')
 
    @livewireScripts
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
